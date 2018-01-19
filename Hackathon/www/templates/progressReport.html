@@ -1,0 +1,39 @@
+<ion-view title="Progress Report" id="page13">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon No Icon"> {{vm.workedInSecsPercent}}% / {{vm.alarmPercent}}%</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <form id="progressReport-form10" class="list">
+      <label class="item item-input" id="progressReport-input3">
+        <span class="input-label">From</span>
+        <input type="date" placeholder=""ng-change="vm.getDate()" ng-model="vm.timeFrom">
+      </label>
+    </form>
+    <form id="progressReport-form11" class="list">
+      <label class="item item-input" id="progressReport-input4">
+        <span class="input-label">To</span>
+        <input type="date" id="myDate" placeholder="" ng-change="vm.getDate()" ng-model="vm.timeTo">
+      </label>
+    </form>
+    <div ng-repeat="(key, compliance) in vm.complianceCounts" id="progressReport-container5">
+      <div class="show-list-numbers-and-dots">
+        <p style="color:#000000;font-size:18px;">
+          <strong>{{vm.formatTime(key)}}</strong>
+        </p>
+      </div>
+      <div class="show-list-numbers-and-dots">
+        <p style="color:#000000;font-size:16px;">
+          <strong>{{vm.calculateExercise(compliance.workedInSecs)}}%</strong> Compliant,
+          <strong>{{vm.calculateAlarms(compliance.alarm, compliance.activities)}}%</strong> Alarm Compliant</p>
+      </div>
+      <div ng-repeat="activity in compliance.activities">
+        <div class="show-list-numbers-and-dots">
+          <p style="color:#000000;">{{vm.moment(activity.kegelStarted || activity.alarm).format("hh:mm A")}} -
+            <strong ng-if="activity.kegelStarted">Exercise Started</strong>
+            <strong ng-if="activity.alarm">Push Notification</strong> </p>
+        </div>
+      </div>
+    </div>
+    <a id="progressReport-button10" ng-click="vm.createPdf()" class="button button-calm button-block icon-right ion-ios-upload-outline"> Email Report</a>
+  </ion-content>
+</ion-view>

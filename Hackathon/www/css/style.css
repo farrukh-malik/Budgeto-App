@@ -1,0 +1,169 @@
+.countdown-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color:
+    black;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+}
+
+.countdown-box {
+    box-shadow: 0 11px black;
+    font-size: 150px;
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px inset gray;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.countdown-box > div {
+    text-align: center;
+    line-height: 185px;
+    vertical-align: middle;
+    height: 200px;
+    width: 200px;
+    -webkit-animation: countdown 1s infinite;
+    animation: countdown 1s infinite;
+}
+
+#newProgram-form7{
+  margin: 0;
+  padding: 0;
+}
+
+.item.item-input {
+  padding-right: 40px;
+}
+
+#plansPrograms-markdown18{
+   margin-top: 10px;
+}
+
+@-webkit-keyframes countdown {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+@keyframes countdown {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+
+
+
+
+
+
+
+/*table work*/
+
+/*
+  Generic Styling, for Desktops/Laptops
+  */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+th {
+  background: #90ce92;
+  color: white;
+  font-weight: bold;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+
+/*
+  Max width before this PARTICULAR table gets nasty
+  This query will take effect for any screen smaller than 760px
+  and also iPads specifically.
+  */
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr { border: 1px solid #ccc; }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 5%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: relative;
+    /* Top/left values mimic padding */
+    top: 0px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+      Label the data
+      */
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  body {
+    padding: 0;
+    margin: 0;
+    width: 320px; }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  body {
+    width: 495px;
+  }
+}
+
+
+/*card view*/
+.box {
+  width:100%;
+  height:298px;
+  background:#FFF;
+  margin:20px auto;
+  box-shadow: 10px 10px 10px -5px grey;
+}
+
+.effect4
+{
+  position: relative;
+}

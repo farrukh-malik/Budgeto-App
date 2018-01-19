@@ -1,0 +1,49 @@
+<!--2nd screen-->
+<ion-view title="Incomes" id="page10">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-ios-plus-outline" ng-click="vm.addIncomesForm()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+
+    <div class = "item item-input-inset">
+      <label class = "item item-input-wrapper">
+        <span class="input-label">Month:</span>
+        <select ng-model="vm.selectedMonth" ng-change="vm.searchByDate()">
+          <option ng-repeat="month in vm.months" value="{{month}}">{{month}}</option>
+        </select>
+      </label>
+    </div>
+    <div class = "list">
+      <div class = "item item-input-inset">
+        <label class = "item item-input-wrapper">
+          <span class="input-label">Year:</span>
+          <select ng-model="vm.selectedYear" ng-change="vm.searchByDate()">
+            <option ng-repeat="year in vm.years" value="{{year}}">{{year}}</option>
+          </select>
+        </label>
+      </div>
+      <!--<button class="button button-icon icon ion-ios-search-strong" ></button>-->
+
+    </div>
+
+      <div class="box effect4" >
+
+        <table >
+          <tr>
+            <th>Category</th>
+            <th scope="col">By</th>
+            <th scope="col">Cost</th>
+
+          </tr>
+          <tr ng-repeat="list in vm.list">
+            <td>{{list.category}}</td>
+            <td>{{list.by}}</td>
+            <td>{{list.cost}}</td>
+          </tr>
+
+        </table>
+
+      </div>
+    <div id="kegel-heading8" style="color:#000000;text-align:center;"> Total = {{vm.totalIncomes}}</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view title="Kegel Options" id="page16">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="sounds-list1" class="manual-list-fullwidth">
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.whistle" ng-model="vm.whistle" ng-change="vm.updateLocal('whistle')" id="sound-toggle1">Starting Whistle</ion-toggle>
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.music" ng-model="vm.music" ng-change="vm.updateLocal('music')" id="sound-toggle2">Ending Music</ion-toggle>
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.ticks" ng-model="vm.ticks" ng-change="vm.updateLocal('ticks')" id="sound-toggle3">Second Ticks</ion-toggle>
+    </ion-list>
+    <div class="spacer" style="width: 300px; height: 19px;"></div>
+    <div class="spacer" style="width: 300px; height: 19px;"></div>
+    <ion-list id="sounds-list2" class="manual-list-fullwidth">
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.vibrate" ng-model="vm.vibrate" ng-change="vm.updateLocal('vibrate')" id="sound-toggle4">Vibration</ion-toggle>
+    </ion-list>
+    <div class="spacer" style="width: 300px; height: 19px;"></div>
+    <h3>Compliance</h3>
+    <ion-list id="sounds-list3" class="manual-list-fullwidth">
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.alarmCompliance" ng-model="vm.alarmCompliance" ng-change="vm.updateLocal('alarmCompliance')" id="sound-toggle5">Use Alarm Compliance</ion-toggle>
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.kegelCompliance" ng-model="vm.kegelCompliance" ng-change="vm.updateLocal('kegelCompliance')" id="sound-toggle6">Use Kegel Compliance</ion-toggle>
+      <label class="item item-input">
+        <span class="input-label" style="width: 100%">Kegel Minutes</span>
+        <input type="number" ng-model="vm.kegelMinutes" ng-keyup="vm.updateLocal('kegelMinutes')"/>
+      </label>
+    </ion-list>
+  </ion-content>
+</ion-view>

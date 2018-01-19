@@ -1,0 +1,33 @@
+$calm: #11ACAC;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.center {
+	top: 50%;
+	width: 100%;
+}
+
+.midde {
+	top: 50%;
+}
+
+.bottom {
+	padding: $content-padding;
+	position: fixed;
+	bottom: 1%;
+	left: 0;
+	right: 0;
+}
+
+.narrow {
+	font-size: 8pt;
+	height: 25%;
+}
+
+.thin {
+	width: 50%;
+}
+
+body {
+	color: #373636;
+}
+

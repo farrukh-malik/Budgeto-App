@@ -1,0 +1,15 @@
+
+<!--1st screen-->
+
+<ion-view title="Dashboard" id="page2">
+  <ion-content padding="true" class="has-header">
+
+    <canvas id="bar" class="chart chart-bar"
+            chart-data="data" chart-labels="labels"> chart-series="series"
+    </canvas>
+
+    <a ng-click="vm.incomesPage()" id="kCoach-button1" class="button button-calm button-block">INCOMES</a>
+      <a ng-click="vm.expensesPage()" id="kCoach-button1" class="button button-calm button-block">EXPENSES</a>
+
+  </ion-content>
+</ion-view>

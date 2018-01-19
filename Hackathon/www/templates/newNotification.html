@@ -1,0 +1,24 @@
+<ion-view title="New Notification" id="page14">
+  <ion-content padding="true" class="has-header">
+    <form id="newNotification-form9" class="list">
+      <label class="item item-input" id="newNotification-input2">
+        <span class="input-label">Time:</span>
+        <input type="time" placeholder="" ng-model="vm.time" ng-change="vm.setTime()">
+      </label>
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.sound" ng-model="vm.sound" id="newNotification-toggle2">Sound</ion-toggle>
+      <label class="item item-select" id="newNotification-select1">
+        <span class="input-label">Choose Sound</span>
+        <select ng-model="vm.selectedSound" ng-change="vm.checkSound()" ng-options="sound.Url as sound.Name for sound in vm.sounds"></select>
+      </label>
+      <ion-toggle toggle-class="toggle-positive" ng-checked="vm.vibrate" ng-model="vm.vibrate" id="newNotification-toggle3">Vibrate</ion-toggle>
+      <ion-checkbox id="newNotification-checkbox10" ng-model="vm.days['S']" class="narrow">Sunday</ion-checkbox>
+      <ion-checkbox id="newNotification-checkbox4" ng-model="vm.days['M']" class="narrow">Monday</ion-checkbox>
+      <ion-checkbox id="newNotification-checkbox5" ng-model="vm.days['T']" class="narrow">Tuesday</ion-checkbox>
+      <ion-checkbox id="newNotification-checkbox6" ng-model="vm.days['W']" class="narrow">Wednesday</ion-checkbox>
+      <ion-checkbox id="newNotification-checkbox7" ng-model="vm.days['R']" class="narrow">Thursday</ion-checkbox>
+      <ion-checkbox id="newNotification-checkbox8" ng-model="vm.days['F']" class="narrow">Friday</ion-checkbox>
+      <ion-checkbox id="newNotification-checkbox9" ng-model="vm.days['SA']" class="narrow">Saturday</ion-checkbox>
+    </form>
+    <a ui-sref="notifications()" id="newNotification-button13" class="button button-calm button-small button-block bottom">Save</a>
+  </ion-content>
+</ion-view>

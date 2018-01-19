@@ -1,0 +1,42 @@
+<ion-view title="New Program" id="page12">
+  <ion-content padding="true" scroll="true" class="has-header">
+    <form id="newProgram-form7" class="list" ng-submit="vm.save()">
+      <ion-scroll scrollY="true">
+        <div ng-repeat="cycle in vm.cycles track by $index">
+
+          <ion-list id="plansPrograms-list7" class="manual-list-fullwidth">
+            <ion-item class="item-icon-left balanced" id="plansPrograms-list-item15" ng-deactivate="">
+              <i class="icon ion-clock"></i>Cycle {{$index + 1}}
+              <ion-option-button class="button-assertive" ng-click="vm.removeCycle($index)">Delete</ion-option-button>
+            </ion-item>
+          </ion-list>
+          <label class="item item-input" id="newProgram-input1">
+            <span class="input-label">Name</span>
+            <input type="text" ng-model="vm.programs[$index]['name']" required>
+          </label>
+
+          <label class="item item-input" >
+            <span class="input-label">Work</span>
+            <input type="number" ng-model="vm.programs[$index]['work']" required>seconds.
+          </label>
+
+          <label class="item item-input" >
+            <span class="input-label">Rest</span>
+            <input type="number" ng-model="vm.programs[$index]['rest']" required>seconds.
+          </label>
+
+          <label class="item item-input" >
+            <span class="input-label">Sets</span>
+            <input type="number" ng-model="vm.programs[$index]['sets']" required>seconds.
+          </label>
+
+        </div>
+
+      </ion-scroll>
+
+      <button class="button button-icon icon ion-ios-plus-outline" style="float: right" ng-click="vm.addField()"></button>
+      <input type="submit" id="newProgram-button16" class="button button-calm button-small button-block bottom" value="Save">
+    </form>
+
+  </ion-content>
+</ion-view>

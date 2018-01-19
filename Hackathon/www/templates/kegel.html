@@ -1,0 +1,20 @@
+<ion-view title="Kegel" hide-nav-bar="true" hide-back-button="true" id="page9" style="background-color:#3FD656;">
+  <ion-content padding="true" class="manual-ios-statusbar-padding">
+    <div class="spacer" style="width: 300.023px; height: 50.9884px;"></div>
+    <h1 id="kegel-heading6" style="color:#000000;text-align:center;">Kegel</h1>
+    <h4 id="kegel-heading6" style="color:#000000;text-align:center;">{{vm.name}}</h4>
+    <div class="spacer" style="width: 299.988px; height: 84.9977px;"></div>
+    <h1 id="kegel-heading7" style="color:#000000;text-align:center;">{{vm.work}} secs</h1>
+    <div class="spacer" style="width: 300px; height: 45px;"></div>
+    <h3 id="kegel-heading8" style="color:#000000;text-align:center;">{{vm.remainingSets}}/{{vm.sets}}</h3>
+    <div style="margin-right:-20px;">
+      <a ng-click="vm.cancel()" id="kegel-button4" style="left:-10px;color:#18281A;" class="button button-positive button-full button-clear">Cancel</a>
+    </div>
+    <div ng-if="vm.secs" class="countdown-container">
+
+    </div>
+    <div ng-if="vm.secs" class="countdown-box">
+      <div>{{vm.secs}}</div>
+    </div>
+  </ion-content>
+</ion-view>

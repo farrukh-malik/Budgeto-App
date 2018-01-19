@@ -1,0 +1,63 @@
+<!--3rd screen-->
+
+<ion-view title="Add-Incomes" id="page2">
+  <ion-content padding="true" class="has-header">
+
+    <form id="newProgram-form7" class="list" ng-submit="vm.addIncomesData()">
+
+      <div>
+        <span>Add Information:</span>
+        <div></div>
+
+        <!--<img src="img/EqfOfR7aQrqglPRqqlBA_kc2.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">-->
+      </div>
+
+      <div class = "list">
+        <div class = "item item-input-inset">
+          <label class = "item item-input-wrapper">
+            <span class="input-label">Month:</span>
+            <select ng-model="vm.selectedMonth" ng-change="vm.search()">
+              <option ng-repeat="month in vm.months" value="{{month}}">{{month}}</option>
+            </select>
+          </label>
+        </div>
+        <div class = "list">
+          <div class = "item item-input-inset">
+            <label class = "item item-input-wrapper">
+              <span class="input-label">Year:</span>
+              <select ng-model="vm.selectedYear" ng-change="vm.search()">
+                <option ng-repeat="year in vm.years" value="{{year}}">{{year}}</option>
+              </select>
+            </label>
+          </div>
+
+        <div class = "item item-input-inset">
+          <label class = "item item-input-wrapper">
+            <i class = "icon ion-edit placeholder-icon"></i>
+            <span class="input-label">Category: </span>
+            <input type = "text" placeholder = "" ng-model="vm.category"/>
+          </label>
+        </div>
+
+        <div class = "item item-input-inset">
+          <label class = "item item-input-wrapper">
+            <i class = "icon ion-edit placeholder-icon"></i>
+            <span class="input-label">By: </span>
+            <input type = "text" placeholder = "" ng-model="vm.by"/>
+          </label>
+        </div>
+
+        <div class = "item item-input-inset">
+          <label class = "item item-input-wrapper">
+            <i class = "icon ion-ios-location placeholder-icon"></i>
+            <span class="input-label">Cost: </span>
+            <input type = "number" placeholder = "" ng-model="vm.cost"/>
+          </label>
+        </div>
+
+      </div>
+
+      <input type="submit" id="newProgram-button16" class="button button-calm button-small button-block bottom" value="ADD">
+    </form>
+  </ion-content>
+</ion-view>
