@@ -167,3 +167,17 @@ and (max-device-width : 480px) {
 {
   position: relative;
 }
+
+
+
+body {
+  cursor: url('https://ionicframework.com/img/finger.png'), auto;
+}
+p {
+  text-align: center;
+  margin-bottom: 40px !important;
+}
+.spinner svg {
+  width: 19% !important;
+  height: 85px !important;
+}

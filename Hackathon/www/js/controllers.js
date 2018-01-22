@@ -1,10 +1,9 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['ionic','chart.js'])
 
   .controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
-
 
     }])
 
@@ -15,15 +14,23 @@ angular.module('app.controllers', [])
 
       $localStorage.incomes = $localStorage.incomes || !$localStorage.hasOwnProperty('incomes') && [];
       $localStorage.expenses = $localStorage.expenses || !$localStorage.hasOwnProperty('expenses') && [];
+      $localStorage.totalIncomes = $localStorage.totalIncomes || !$localStorage.hasOwnProperty('totalIncomes');
+      $localStorage.totalExpenses = $localStorage.totalExpenses || !$localStorage.hasOwnProperty('totalExpenses');
 
       var vm = this;
-      //$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-      //$scope.series = ['Series A', 'Series B'];
-      //
-      //$scope.data = [
-      //  [65, 59, 80, 81, 56, 55, 40],
-      //  [28, 48, 40, 19, 86, 27, 90]
-      //];
+
+      $scope.$on('$ionicView.beforeEnter', function(){
+        var totalIncomes = $localStorage.totalIncomes;
+        var totalExpenses = $localStorage.totalExpenses;
+        var savings = totalIncomes - totalExpenses;
+        //chart work
+        $scope.labels = ['Budgeto'];
+        $scope.series = ['Series A', 'Series B', 'Series C'];
+
+        $scope.data = [ [totalIncomes], [totalExpenses], [savings] ];
+//
+      });
+
 
       vm.incomesPage = function(){
           $state.go('incomes');
@@ -66,7 +73,7 @@ angular.module('app.controllers', [])
             total += incomesData[i].cost;
         }
         vm.totalIncomes = total;
-
+        $localStorage.totalIncomes = total;
       });
 
       vm.addIncomesForm = function(){
@@ -126,6 +133,7 @@ angular.module('app.controllers', [])
             total += expensesData[i].cost;
         }
         vm.totalExpenses = total;
+        $localStorage.totalExpenses = total;
 
       });
 
