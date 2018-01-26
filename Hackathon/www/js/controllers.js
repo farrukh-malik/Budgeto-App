@@ -20,14 +20,66 @@ angular.module('app.controllers', ['ionic','chart.js'])
       var vm = this;
 
       $scope.$on('$ionicView.beforeEnter', function(){
+        var allIncomes = $localStorage.incomes;
+        var monthlyIncomes = [0,0,0,0,0,0,0,0,0,0,0,0];
         var totalIncomes = $localStorage.totalIncomes;
         var totalExpenses = $localStorage.totalExpenses;
         var savings = totalIncomes - totalExpenses;
         //chart work
-        $scope.labels = ['Budgeto'];
+        //$scope.labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        //$scope.series = ['Series A', 'Series B', 'Series C'];
+        //
+        //$scope.data = [ [totalIncomes][totalExpenses][savings], [totalExpenses], [savings] ];
+
+        for(i = 0; i<allIncomes.length; i++){
+
+          if (allIncomes[i].month == "Jan" && allIncomes[i].year == "2014"){
+              monthlyIncomes[0] = monthlyIncomes[0] + allIncomes[i].cost;
+            }
+          if (allIncomes[i].month == "Feb" && allIncomes[i].year == "2014"){
+            monthlyIncomes[1] = monthlyIncomes[1] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Mar" && allIncomes[i].year == "2014"){
+            monthlyIncomes[2] = monthlyIncomes[2] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Apr" && allIncomes[i].year == "2014"){
+            monthlyIncomes[3] = monthlyIncomes[3] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "May" && allIncomes[i].year == "2014"){
+            monthlyIncomes[4] = monthlyIncomes[4] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "June" && allIncomes[i].year == "2014"){
+            monthlyIncomes[5] = monthlyIncomes[5] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "July" && allIncomes[i].year == "2014"){
+            monthlyIncomes[6] = monthlyIncomes[6] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Aug" && allIncomes[i].year == "2014"){
+            monthlyIncomes[7] = monthlyIncomes[7] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Sept" && allIncomes[i].year == "2014"){
+            monthlyIncomes[8] = monthlyIncomes[8] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Oct" && allIncomes[i].year == "2014"){
+            monthlyIncomes[9] = monthlyIncomes[9] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Nov" && allIncomes[i].year == "2014"){
+            monthlyIncomes[10] = monthlyIncomes[10] + allIncomes[i].cost;
+          }
+          if (allIncomes[i].month == "Dec" && allIncomes[i].year == "2014"){
+            monthlyIncomes[11] = monthlyIncomes[11] + allIncomes[i].cost;
+          }
+        }
+        console.log(monthlyIncomes);
+
+        $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
         $scope.series = ['Series A', 'Series B', 'Series C'];
 
-        $scope.data = [ [totalIncomes], [totalExpenses], [savings] ];
+        $scope.data = [
+          monthlyIncomes,
+          [ 48, 40, 19, 86, 27, 90,48, 40, 19, 86, 27, 90],
+          [ 48, 40, 19, 86, 27, 90,48, 40, 19, 86, 27, 90]
+        ];
 //
       });
 
