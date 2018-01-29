@@ -12,19 +12,23 @@ angular.module('app.controllers', ['ionic','chart.js'])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $state, $localStorage) {
 
-      $localStorage.incomes = $localStorage.incomes || !$localStorage.hasOwnProperty('incomes') && [];
-      $localStorage.expenses = $localStorage.expenses || !$localStorage.hasOwnProperty('expenses') && [];
-      $localStorage.totalIncomes = $localStorage.totalIncomes || !$localStorage.hasOwnProperty('totalIncomes');
-      $localStorage.totalExpenses = $localStorage.totalExpenses || !$localStorage.hasOwnProperty('totalExpenses');
+        $localStorage.incomes = $localStorage.incomes || !$localStorage.hasOwnProperty('incomes') && [];
+        $localStorage.expenses = $localStorage.expenses || !$localStorage.hasOwnProperty('expenses') && [];
+        $localStorage.totalIncomes = $localStorage.totalIncomes || !$localStorage.hasOwnProperty('totalIncomes');
+        $localStorage.totalExpenses = $localStorage.totalExpenses || !$localStorage.hasOwnProperty('totalExpenses');
 
-      var vm = this;
+        var vm = this;
 
       $scope.$on('$ionicView.beforeEnter', function(){
-        var allIncomes = $localStorage.incomes;
-        var monthlyIncomes = [0,0,0,0,0,0,0,0,0,0,0,0];
-        var totalIncomes = $localStorage.totalIncomes;
-        var totalExpenses = $localStorage.totalExpenses;
-        var savings = totalIncomes - totalExpenses;
+          var allIncomes = $localStorage.incomes;
+          var allExpenses = $localStorage.expenses;
+
+          var monthlyIncomes = [0,0,0,0,0,0,0,0,0,0,0,0];
+          var monthlyExpenses = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+          var totalIncomes = $localStorage.totalIncomes;
+          var totalExpenses = $localStorage.totalExpenses;
+          var savings = totalIncomes - totalExpenses;
         //chart work
         //$scope.labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         //$scope.series = ['Series A', 'Series B', 'Series C'];
@@ -34,8 +38,8 @@ angular.module('app.controllers', ['ionic','chart.js'])
         for(i = 0; i<allIncomes.length; i++){
 
           if (allIncomes[i].month == "Jan" && allIncomes[i].year == "2014"){
-              monthlyIncomes[0] = monthlyIncomes[0] + allIncomes[i].cost;
-            }
+            monthlyIncomes[0] = monthlyIncomes[0] + allIncomes[i].cost;
+          }
           if (allIncomes[i].month == "Feb" && allIncomes[i].year == "2014"){
             monthlyIncomes[1] = monthlyIncomes[1] + allIncomes[i].cost;
           }
@@ -72,14 +76,51 @@ angular.module('app.controllers', ['ionic','chart.js'])
         }
         console.log(monthlyIncomes);
 
-        $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+        for(i = 0; i<allExpenses.length; i++){
+
+          if (allExpenses[i].month == "Jan" && allExpenses[i].year == "2014"){
+            monthlyExpenses[0] = monthlyExpenses[0] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Feb" && allExpenses[i].year == "2014"){
+            monthlyExpenses[1] = monthlyExpenses[1] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Mar" && allExpenses[i].year == "2014"){
+            monthlyExpenses[2] = monthlyExpenses[2] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Apr" && allExpenses[i].year == "2014"){
+            monthlyExpenses[3] = monthlyExpenses[3] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "May" && allExpenses[i].year == "2014"){
+            monthlyExpenses[4] = monthlyExpenses[4] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "June" && allExpenses[i].year == "2014"){
+            monthlyExpenses[5] = monthlyExpenses[5] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "July" && allExpenses[i].year == "2014"){
+            monthlyExpenses[6] = monthlyExpenses[6] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Aug" && allExpenses[i].year == "2014"){
+            monthlyExpenses[7] = monthlyExpenses[7] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Sept" && allExpenses[i].year == "2014"){
+            monthlyExpenses[8] = monthlyExpenses[8] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Oct" && allExpenses[i].year == "2014"){
+            monthlyExpenses[9] = monthlyExpenses[9] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Nov" && allExpenses[i].year == "2014"){
+            monthlyExpenses[10] = monthlyExpenses[10] + allExpenses[i].cost;
+          }
+          if (allExpenses[i].month == "Dec" && allExpenses[i].year == "2014"){
+            monthlyExpenses[11] = monthlyExpenses[11] + allExpenses[i].cost;
+          }
+        }
+        console.log(monthlyExpenses);
+
+        $scope.labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
         $scope.series = ['Series A', 'Series B', 'Series C'];
 
-        $scope.data = [
-          monthlyIncomes,
-          [ 48, 40, 19, 86, 27, 90,48, 40, 19, 86, 27, 90],
-          [ 48, 40, 19, 86, 27, 90,48, 40, 19, 86, 27, 90]
-        ];
+        $scope.data = [ monthlyIncomes, monthlyExpenses, [ 48, 40, 19, 86, 27, 90,48, 40, 19, 86, 27, 90] ];
 //
       });
 
@@ -99,11 +140,11 @@ angular.module('app.controllers', ['ionic','chart.js'])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $rootScope, $state, $localStorage) {
 
-      var vm = this;
-      var incomesData = $localStorage.incomes;
-      vm.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-      vm.years = ['2014', '2015', '2016', '2017', '2018'];
-      var temp = [];
+        var vm = this;
+        var incomesData = $localStorage.incomes;
+        vm.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        vm.years = ['2014', '2015', '2016', '2017', '2018'];
+        var temp = [];
 
       vm.searchByDate = function(){
           var selectedMonthSearch = this.selectedMonth;
